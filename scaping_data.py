@@ -6,11 +6,11 @@ name_url = 'https://www.eecs.mit.edu/people/faculty-advisors'
 data_url = 'https://arxiv.org'
 
 html =  urlopen(name_url)
-soup =  BeautifulSoup(html, 'lxml')
+soup =  BeautifulSoup(html)
 
 # scape the faculty names of the EECS department
 name_all =  []
-tags =  soup('br', 'lxml')
+tags =  soup('br')
 
 for n in range(len(tags)):
     name_temp = tags[n].previous_sibling
@@ -30,7 +30,7 @@ with open('abstract_data.csv', mode='w') as csvFile:
         faculty_name = name_split[1] + '_' + name_split[0]
 
         search_page  = urlopen(data_url + "/find/all/1/au:+" + faculty_name + "/0/1/0/all/0/1?per_page=50")
-        soup = BeautifulSoup(search_page, 'lxml')
+        soup = BeautifulSoup(search_page)
 
         # scaping the abstract contnet from abstact links
         for title in soup(search_page, title = 'Abstract'):
