@@ -1,2 +1,2 @@
-## A module for identifying fusulinids using CNN
+### A jupyter notebook for identifying fusulinids using CNN
 
