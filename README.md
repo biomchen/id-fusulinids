@@ -7,7 +7,7 @@
 
 ### Data
 
-The original data was provided Dr. Yikun Shi, School of Earth Sciences, University. They have been preprocessed.
+The original data was provided **Dr. Yikun Shi**, School of Earth Sciences, University. They have been preprocessed.
 You can find the examples in the example folder.
 
 ### Data augmentation
