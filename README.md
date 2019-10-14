@@ -1,6 +1,6 @@
-## Experiments on implementation of deep learning framework for identifying fusulinids using CNN
+# Experiments on implementation of deep learning framework – Identifying fusulinids using CNN
 
-### Overview
+## Overview
 
 ### Data
 
@@ -13,15 +13,15 @@ The original dataset has 119 images, which were far from enough for deep learnin
 
 ### Model
 
-The deep learning network is implementated with `Keras` API (`TensorFlow` backend).
+The convolutional neural network is implemented with `Keras` API (`TensorFlow` backend).
 
 ### Training
 
 The model is trained for 10 epoch with batch generator.
 After 10 epochs, the accuracy is about
 Loss function for the training is `sparse_categorical_crossentropy`.
-
-### How to use
+---------
+## How to use
 
 #### Dependencies
 
@@ -34,4 +34,4 @@ This will show how training process.
 
 #### Results
 
-### About `Keras`
+## About `Keras`
