@@ -1,4 +1,4 @@
-# Implementation of Convolutional Neural Network – Identifying fusulinids
+# Experiment on Convolutional Neural Network – Identifying fusulinids
 
 ## Overview
 
