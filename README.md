@@ -20,7 +20,9 @@ The convolutional neural network is implemented with `Keras` API (`TensorFlow` b
 The model is trained for 10 epoch with batch generator.
 After 10 epochs, the accuracy is about
 Loss function for the training is `sparse_categorical_crossentropy`.
+
 ---------
+
 ## How to use
 
 #### Dependencies
