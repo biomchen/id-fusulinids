@@ -32,7 +32,7 @@ Loss function for the training is `sparse_categorical_crossentropy`.
 
 #### Dependencies
 
-  Tensorflow >=1.14
+  Tensorflow >=1.14                          
   Keras == 2.0
 #### Run eigenface.py
 
