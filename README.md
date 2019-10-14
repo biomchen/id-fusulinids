@@ -18,7 +18,7 @@ The original dataset has 119 images, which were far from enough for deep learnin
 
 ### Model
 
-The convolutional neural network is implemented with `Keras` API (`TensorFlow` backend).
+The convolutional neural network (CNN) is implemented with `Keras` API (`TensorFlow` backend).
 
 ### Training
 
@@ -44,4 +44,4 @@ This will show how training process.
 
 #### Results
 
-## About `Keras`
+## About `CNN`
