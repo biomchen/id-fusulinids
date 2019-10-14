@@ -1,6 +1,8 @@
-## Experiment on Convolutional Neural Network – Identifying fusulinids                
+## Experiment on Convolutional Neural Network – Identifying fusulinids
 
-@author: Meng Chen (under construction)
+(under construction)               
+
+@author: Meng Chen
 
 ------------
 ## Overview
@@ -32,6 +34,9 @@ Loss function for the training is `sparse_categorical_crossentropy`.
 
   Tensorflow >=1.14
   Keras == 2.0
+#### Run eigenface.py
+
+This will calculate the eigenface of all fusulinids in the example folder.
 
 #### Run cnn_train.py
 
