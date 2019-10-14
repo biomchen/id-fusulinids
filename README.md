@@ -7,7 +7,7 @@
 
 ### Data
 
-The original data was provided **Dr. Yikun Shi**, School of Earth Sciences, University. They have been preprocessed.
+The original data was provided by [Dr. Yikun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm), Deputy Director of the Centre for Research and Education on Biological Evolution and Environment, Nanjing University. They have been preprocessed.
 You can find the examples in the example folder.
 
 ### Data augmentation
