@@ -1,4 +1,4 @@
-# Experiments on implementation of deep learning framework – Identifying fusulinids using CNN
+# Experiments on implementation of Convolutional Neural Network – Identifying fusulinids
 
 ## Overview
 
@@ -7,7 +7,7 @@
 The original data was provided Dr. Yikun Shi, School of Earth Sciences, University. They have been preprocessed.
 You can find the examples in the example folder.
 
-### Data augumentation
+### Data augmentation
 
 The original dataset has 119 images, which were far from enough for deep learning neural network. I used `ImageDataGenerator` in `keras.preprocessing.image` to perform the data augmentation.
 
