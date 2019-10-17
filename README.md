@@ -1,11 +1,11 @@
-## Experiment on Convolutional Neural Network – Identifying fusulinids
+### Experiment on Convolutional Neural Network – Identifying fusulinids
 
 (under construction)               
 
 @author: Meng Chen
 
 ------------
-## Introduction
+### Introduction
 
 Fusulinids are one of the most informative fossils present in the stratigraphic horizon. Particularly, petroleum industry relies on them to for signaing the deposit layer of oil and natural gas. Certain species only occurred in those horizon. Identifying species becomes endless effort by oil industry. Recently, the machine learning becomes more practical, from a simple chatbot from the customer service of AT&T, to the prodcut recommendation system of Amazon, and to the sophistical AlphaGo of Google AI. Machine learning becomes more and more close to our regular life and even challenge the current life choice (e.g., self-driving car) and maybe replace our jobs (e.g., truck drivers) in near future.
 
@@ -19,15 +19,15 @@ The data was provided by [Dr. Yikun Shi](https://es.nju.edu.cn/crebee/fjs/list.h
 
 ![](fig_1.jpg)
 
+**Fig. 1** Some examples of the fusulinid images in the dataset.
+
 ### Data augmentation
 
-The original dataset has 119 images, which were far from enough for deep learning neural network. I used `ImageDataGenerator` in `keras.preprocessing.image` to perform the data augmentation.
-
-I used `image_generator.flow_from_directory` to generate batches of datasets for training and validation
+The original dataset has 119 images, which were far from enough for deep learning neural network. I used `ImageDataGenerator` in `keras.preprocessing.image` to augment dataset with 6,579 images. I used `flow_from_directory` from `ImageDataGenerator` to build training and validation batches. Each training batch has 32 samples, while each validation batch has one sample.
 
 ### Model
 
-The convolutional neural network (CNN) is implemented with `Keras` API (`TensorFlow` backend).
+The convolutional neural network (CNN) is implemented with `Keras` API (`TensorFlow` backend). Because the images of fusulinids are less complicated than those of biomedical counterparts, our CNN model is a much simpler architecture than that of U-net. In total, the CNN has 31,641,670 trainable parameters in total. I applied `Adam` as optimizer, `sparse_categorical_crossentropy` for loss function, and  `mse` for validation metrics. See the codes below for details.
 
 ```python
 def build_cnn(input_size=(255, 255, 3)):
@@ -46,47 +46,14 @@ def build_cnn(input_size=(255, 255, 3)):
                   metrics=['accuracy'])
     return model
 ```
-The CNN model has 31,641,670 trainable parameters in total. See the table below for details.
 
-**Table 1** The detials of the CNN model
+### Results
 
-|Layer (type)| Output Shape| Param #|
-|:-----------|:------------|:-------|
-|InputLayer|(None, 255, 255, 3)| 0|
-|Conv2D|(None, 253, 253, 128)|3584|
-|Conv2D|(None, 251, 251, 128)|147584|
-|MaxPooling2D|(None, 62, 62, 128)|0|
-|Flatten|(None, 492032)|0|
-|Activation|(None, 492032)|0|
-|Dropout|(None, 492032)|0|
-|Dense|(None, 64)|31490112|
-|Dense|(None, 6)|390|
+The accuracy of the CNN model for 10-epoch training session is 0.9850 and 0.9748 for training and validation datasets, respectively. These are encouraging results for implementing the CNN for identifying the fusulinids at the first phase.
 
-For the first implementation, I used `Adam` as optimizer, `sparse_categorical_crossentropy` for loss function, and  `mse` for validation metrics.
-
-### Training
-
-By using Lenovo P410 workstation with Nvidia Quadro M4000 8G with CUDA enabled, I was able to train the model under 20 minutes.
-
----------
-
-## How to use
-
-#### Dependencies
-
-  Tensorflow >=1.14                          
-  Keras == 2.0
-
-#### Run eigenface.py
-
-This will calculate the eigenface of all fusulinids in the example folder.
-
-#### Run train.py
-
-
-#### Results
-
-After 10 epochs, the accuracy of the CNN model are 0.9850 and 0.9748 for training and validation datasets, respectively.
 ![](fig_2.jpg)
+**Fig. 2** The results of the training of CNN models on fusulinids.
 
-## About `CNN`
+### Future direction
+
+After the first phase of identifying the fusulinids successfully using well-preprocessed images, we are moving the projects forward to using raw data. Currently, we are still in collecting a much larger dataset of raw images of the fusulinids.
