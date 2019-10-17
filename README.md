@@ -54,6 +54,6 @@ The accuracy of the CNN model for 10-epoch training session is 0.9850 and 0.9748
 ![](fig_2.jpg)
 **Fig. 2** The results of the training of CNN models on fusulinids.
 
-### Future direction
+### Next step
 
 After the first phase of identifying the fusulinids successfully using well-preprocessed images, we are moving the projects forward to using raw data. Currently, we are still in collecting a much larger dataset of raw images of the fusulinids.
