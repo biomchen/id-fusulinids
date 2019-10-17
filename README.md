@@ -62,7 +62,7 @@ The CNN model has 31,641,670 trainable parameters in total. See the table below 
 |Dense|(None, 64)|31490112|
 |Dense|(None, 6)|390|
 
-For the first implementation, I used 'Adam' as optimizer, 'sparse_categorical_crossentropy' for loss function, and 'mse' for validation metrics.
+For the first implementation, I used `Adam` as optimizer, `sparse_categorical_crossentropy` for loss function, and  `mse` for validation metrics.
 
 ### Training
 
