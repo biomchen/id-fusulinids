@@ -1,4 +1,4 @@
-## Experiment on Convolutional Neural Network – Identifying fusulinids
+## Experiment on Convolutional Neural Network – Identifying fusulinids (phase 1)
 
 (under construction)               
 
