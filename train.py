@@ -99,5 +99,5 @@ def train():
     plot_history(history)
     model.save('id_fusulinids.h5')
 
-if __init__ == __main__:
+if __name__ == '__main__':
     train()
