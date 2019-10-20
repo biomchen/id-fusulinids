@@ -17,11 +17,12 @@ from matplotlib import pyplot as plt
 
 def generator(b_size, img_height, img_width, dtype, class_mode='sparse'):
     image_generator = ImageDataGenerator(rescale=1./255)
-    path = input('Enter your {} data directory...'.format(dtype))
+    path = input('Enter your {} data directory: '.format(dtype))
     data_dir= pathlib.Path(path)
     #image_count = len(list(data_dir_train.glob('*/*.jpg')))
     items = data_dir.glob('*')
-    genus_names = np.array([item.name for item in items])
+    ds = '.DS_Store' # the macOS hidden file
+    genus_names = np.array([item.name for item in items if item.name != ds])
     gen = image_generator.flow_from_directory(directory=str(data_dir),
                                               batch_size=b_size,
                                               shuffle=True,
@@ -32,7 +33,7 @@ def generator(b_size, img_height, img_width, dtype, class_mode='sparse'):
     return gen
 
 
-def show_batch(image_batch, label_batch):
+def show_batch(image_batch, label_batch, genus_names):
     plt.figure(figsize=(10, 10))
     for n in range(25):
         ax = plt.subplot(5, 5, n+1)
@@ -83,7 +84,8 @@ def plot_history(history):
 def train():
     train_generator = generator(32, 255, 255, 'training')
     image_batch_train, label_batch_train = next(train_generator)
-    show_batch(image_batch_train, label_batch_train)
+    genus_names = list(train_generator.class_indices.keys())
+    show_batch(image_batch_train, label_batch_train, genus_names)
     valid_generator = generator(1, 255, 255, 'validation')
     # step size
     step_size_train = train_generator.n//train_generator.batch_size

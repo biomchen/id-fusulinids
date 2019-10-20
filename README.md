@@ -1,6 +1,5 @@
-## Experiment on Convolutional Neural Network – Identifying fusulinids (phase 1)
+## Identifying fusulinids using Convolutional Neural Network (phase 1)
 
-(under construction)               
 
 @author: Meng Chen
 
@@ -11,7 +10,6 @@ Fusulinids are one of the most informative fossils present in the stratigraphic 
 
 Today, with computational power increases drastically, the machine learning implementation is not the personal matter of the supercomputer anymore, workstation or even a personal computer can successfully training the model with proper specs (e.g., Nivdia Quadro graphic card with CUDA enabled). To pioneering implementation of machine learning techniques in paleobiology, my collaborators and I have investigated how to identify fusulinids with convolutional neural network (CNN). The projects will have two phases based on the quality of the data, fined-tuned images vs raw images. The ultimate goal of this project will be the implementation of CNN for identifying the fusulinids species without numerous manual tuning on the original images, saving workload for initial assessments of the new genus or species. Broadly, this project will build a framework for identifying organism elements, teeth for example, to help differentiate the species identity or functions based on physical morphology.
 
-Currently, the project completed the first phase and will move on by gathering a large stack of the raw images to train the CNN model and to assess if this approach is practical for identifying the species.
 
 ### Data
 
@@ -23,7 +21,7 @@ The data was provided by [Dr. Yikun Shi](https://es.nju.edu.cn/crebee/fjs/list.h
 
 ### Data augmentation
 
-The original dataset has 119 images, which were far from enough for deep learning neural network. I used `ImageDataGenerator` in `keras.preprocessing.image` to augment dataset with 6,579 images. I used `flow_from_directory` from `ImageDataGenerator` to build training and validation batches. Each training batch has 32 samples, while each validation batch has one sample.
+The original dataset has 119 images, which were far from enough for deep learning neural network. I used `ImageDataGenerator` in `keras.preprocessing.image` to augment dataset with 6,928 images. I used `flow_from_directory` from `ImageDataGenerator` to build training and validation batches. Each training batch has 32 samples, while each validation batch has one sample.
 
 ### Model
 
