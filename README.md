@@ -1,9 +1,9 @@
 ## Identifying fusulinids using Convolutional Neural Network (phase 1)
 
-**Meng Chen**
-School of Earth Sciences
-Centre for Research and Education on Biological Evolution and Environment
-Nanjing University, Nanjing, China, 210093
+**Meng Chen**                          
+School of Earth Sciences                                   
+Centre for Research and Education on Biological Evolution and Environment                             
+Nanjing University, Nanjing, China, 210093                           
 
 ------------
 ### Introduction
