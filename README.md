@@ -1,7 +1,9 @@
 ## Identifying fusulinids using Convolutional Neural Network (phase 1)
 
-
-@author: Meng Chen
+**Meng Chen**
+School of Earth Sciences
+Centre for Research and Education on Biological Evolution and Environment
+Nanjing University, Nanjing, China, 210093
 
 ------------
 ### Introduction
