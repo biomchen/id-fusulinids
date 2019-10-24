@@ -32,7 +32,6 @@ def generator(b_size, img_height, img_width, dtype, class_mode='sparse'):
                                               classes=list(genus_names))
     return gen
 
-
 def show_batch(image_batch, label_batch, genus_names):
     plt.figure(figsize=(10, 10))
     for n in range(25):
