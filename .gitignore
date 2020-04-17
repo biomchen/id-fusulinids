@@ -3,3 +3,4 @@
 *.jpg
 .ipynb_checkpoints/id_notebook-checkpoint.ipynb
 .ipynb_checkpoints/train-checkpoint.py
+*.h5

@@ -98,7 +98,7 @@ def train():
                                   epochs=10,
                                   verbose=1)
     plot_history(history)
-    model.save('id_fusulinids.h5')
+    model.save('./model/id_fusulinids.h5')
 
 if __name__ == '__main__':
     train()
