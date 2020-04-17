@@ -23,13 +23,14 @@ def generator(b_size, img_height, img_width, dtype, class_mode='sparse'):
     items = data_dir.glob('*')
     ds = '.DS_Store' # the macOS hidden file
     genus_names = np.array([item.name for item in items if item.name != ds])
-    gen = image_generator.flow_from_directory(directory=str(data_dir),
-                                              batch_size=b_size,
-                                              shuffle=True,
-                                              target_size=(img_height,
-                                                           img_width),
-                                              class_mode=class_mode,
-                                              classes=list(genus_names))
+    gen = image_generator.flow_from_directory(
+        directory=str(data_dir),
+        batch_size=b_size,
+        shuffle=True,
+        target_size=(img_height, img_width),
+        class_mode=class_mode,
+        classes=list(genus_names)
+        )
     return gen
 
 def show_batch(image_batch, label_batch, genus_names):
@@ -98,7 +99,7 @@ def train():
                                   epochs=10,
                                   verbose=1)
     plot_history(history)
-    model.save('./model/id_fusulinids.h5')
+    model.save('model/id_fusulinids.h5')
 
 if __name__ == '__main__':
     train()

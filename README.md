@@ -49,7 +49,7 @@ def build_cnn(input_size=(255, 255, 3)):
 
 The accuracy of the CNN model for 10-epoch training session is 0.9850 and 0.9748 for training and validation datasets, respectively. These are encouraging results for implementing the CNN for identifying the fusulinids at the first phase.
 
-![](fig_2.jpg)
+![](fig_2.png)
 **Fig. 2** The results of the training of CNN models on fusulinids.
 
 ### Next step
