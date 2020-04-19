@@ -1,5 +1,5 @@
 # Fusulinids species identification
-## ML implementation using Convolutional Neural Network (CNN)
+A ML implementation using Convolutional Neural Network (CNN) to identify extinct species
 
 **Meng Chen**, **Yukun Shi**                          
 Centre for Research and Education on Biological Evolution and Environment          
