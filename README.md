@@ -27,7 +27,7 @@ The original dataset has 119 images, which were far from enough for deep learnin
 
 ### Model
 
-The convolutional neural network (CNN) is implemented with `Keras` API (`TensorFlow` backend). Because the images of fusulinids are less complicated than those of biomedical counterparts, our CNN model is a much simpler architecture than that of U-net. In total, the CNN has 31,641,670 trainable parameters in total. I applied `Adam` as optimizer and `sparse_categorical_crossentropy` for loss function. See the codes below for details.
+The convolutional neural network (CNN) is implemented with `Keras` API (`TensorFlow` backend). Because the images of fusulinids are less complicated than those of biomedical counterparts, our CNN model is a much simpler architecture than that of U-net. In total, the CNN has 31,723,782 trainable parameters in total. I applied `Adam` as optimizer and `sparse_categorical_crossentropy` for loss function. See the codes below for details.
 
 ```python
 def build_cnn(input_size=(255, 255, 3)):
@@ -54,7 +54,7 @@ def build_cnn(input_size=(255, 255, 3)):
 
 ### Results
 
-The accuracy of the CNN model for 10-epoch training session is 0.9850 and 0.9748 for training and validation datasets, respectively. These are encouraging results for implementing the CNN for identifying the fusulinids at the first phase.
+The accuracy of the CNN model for 10-epoch training session is 0.9852 and 0.9863 for training and validation datasets, respectively. These are encouraging results for implementing the CNN for identifying the fusulinids at the first phase.
 
 ![](fig_2.png)
 **Fig. 2** The results of the training of CNN models on fusulinids.
