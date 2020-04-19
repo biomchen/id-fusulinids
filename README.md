@@ -4,7 +4,7 @@
 
 **Meng Chen**, **Yukun Shi**                          
 Centre for Research and Education on Biological Evolution and Environment          
-School of Earth Sciences                                                            
+School of Earth Sciences and Engineering                                                          
 Nanjing University, Nanjing, China, 210093                           
 
 ------------
