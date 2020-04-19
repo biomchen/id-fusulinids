@@ -31,17 +31,22 @@ The convolutional neural network (CNN) is implemented with `Keras` API (`TensorF
 def build_cnn(input_size=(255, 255, 3)):
     inputs = Input(input_size)
     conv1 = Conv2D(128, 3, activation='relu')(inputs)
-    conv1 = Conv2D(128, 3, activation='relu')(conv1)
-    pool1 = MaxPooling2D(pool_size=(4, 4))(conv1)
+    conv2 = Conv2D(128, 3, activation='relu')(conv1)
+    conv3 = Conv2D(64, 3, activation='relu')(conv2)
+    pool1 = MaxPooling2D(pool_size=(4, 4))(conv3)
     flat1 = Flatten()(pool1)
     relu1 = Activation('relu')(flat1)
     drop1 = Dropout(rate=0.5)(relu1)
-    dense1 = Dense(64, activation='relu')(drop1)
-    dense2 = Dense(6, activation='softmax')(dense1)
-    model = Model(inputs=inputs, outputs=dense2)
-    model.compile(optimizer='Adam',
-                  loss='sparse_categorical_crossentropy',
-                  metrics=['accuracy'])
+    dense1 = Dense(128, activation='relu')(drop1)
+    drop2 = Dropout(rate=0.5)(dense1)
+    dense2 = Dense(64, activation='relu')(drop2)
+    dense3 = Dense(6, activation='softmax')(dense2)
+    model = Model(inputs=inputs, outputs=dense3)
+    model.compile(
+        optimizer='Adam',
+        loss='sparse_categorical_crossentropy', 
+        metrics=['accuracy']
+    )
     return model
 ```
 
