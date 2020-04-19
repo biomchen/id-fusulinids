@@ -1,5 +1,5 @@
 # Fusulinids species identification
-### ML implementation using Convolutional Neural Network (CNN)
+## ML implementation using Convolutional Neural Network (CNN)
 
 **Meng Chen**, **Yukun Shi**                          
 Centre for Research and Education on Biological Evolution and Environment          
