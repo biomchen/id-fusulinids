@@ -11,7 +11,7 @@ from matplotlib import pyplot as plt
 # funcitons used in the web app
 def show_img(img):
     image = np.array(Image.open(img))
-    return st.image(image, caption='Specimen selected')
+    return st.image(image)
 
 def process_img(img_path):
     img = load_img(img_path, target_size=(255, 255))
@@ -60,8 +60,8 @@ st.header(
 # seting up the sidebar and loading the data
 st.sidebar.title('Identify a New Specimen')
 st.sidebar.markdown(
-    '**Data availability**: only some species of elected genus are avaliable \
-    for traing the model.'
+    '**Data availability**: only some species of selected genus are avaliable \
+    for analyses.'
     )
 genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
 folder_path = pathlib.Path('sample')
