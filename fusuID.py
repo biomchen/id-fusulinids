@@ -20,7 +20,6 @@ def process_img(img_path):
 def load_model(model_path):
     return tf.keras.models.load_model(model_path)
 
-@st.cache(persist=True, suppress_st_warning=True)
 def label2species(species_dict):
     l_dict = {v:k for k, v in zip(species_dict.keys(), species_dict.values())}
     return l_dict
