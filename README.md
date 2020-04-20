@@ -1,6 +1,6 @@
 # Fusulinids species identification
 
-**A ML implementation using Convolutional Neural Network (CNN) to identify extinct species by**
+**A ML implementation using Convolutional Neural Network (CNN) to identify extinct species**
 
 **Meng Chen**, **Yukun Shi**                          
 Centre for Research and Education on Biological Evolution and Environment          
@@ -46,7 +46,7 @@ def build_cnn(input_size=(255, 255, 3)):
     model = Model(inputs=inputs, outputs=dense3)
     model.compile(
         optimizer='Adam',
-        loss='sparse_categorical_crossentropy', 
+        loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
     return model
