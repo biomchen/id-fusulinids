@@ -1,12 +1,10 @@
 import streamlit as st
 import numpy as np
 import pathlib
-import IPython.display as display
 from PIL import Image
 import keras
 import tensorflow as tf
 from keras.preprocessing.image import load_img, img_to_array
-from matplotlib import pyplot as plt
 
 # funcitons used in the web app
 def show_img(img):
@@ -51,10 +49,11 @@ st.markdown(
     "<h1 style='text-align: left; color: #468FB9;'>Welcome to fusuID!</h1>",
     unsafe_allow_html=True
     )
-st.header(
-    '''A ML experimental implementation to identify fusulinids species\
-     using Covulutional Neural Network (CNN).
-    '''
+st.markdown(
+    '''<h2 style='text-align: left; color: black;'>A ML experimental \
+    implementation to identify fusulinids species\
+     using Covulutional Neural Network (CNN)</h2>.''',
+     unsafe_allow_html=True
     )
 
 # seting up the sidebar and loading the data
@@ -82,7 +81,7 @@ st.sidebar.markdown(
     'Please find more details at [GitHub](https://github.com/biomchen/id-fusulinids).'
     )
 st.markdown(
-    "<h3 style='text-align: left; color: #AF710D;'>Image of selected specimen \
+    "<h3 style='text-align: left; color: black;'>Image of the selected specimen \
     of {0}</h3>"
     .format(genus),
     unsafe_allow_html=True)
@@ -93,8 +92,10 @@ def main():
     else:
         img = img_upload
     show_img(img)
-    results = predict_species(img, model, species_dict)
-    st.write('### Top 3 Predictions:')
+    with st.spinner('Wait for processing data and making predictions ...'):
+        results = predict_species(img, model, species_dict)
+    st.success('Prediction is finished!')
+    st.write('### Predicted results (with probablity):')
     for r,p in zip(results.keys(), results.values()):
         st.write(r,': ',p, 'probability.')
 
