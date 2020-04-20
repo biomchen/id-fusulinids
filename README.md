@@ -17,7 +17,7 @@ Today, with computational power increases drastically, the machine learning impl
 
 ### Data
 
-The data was provided by [Dr. Yikun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm), Deputy Director of the [Centre for Research and Education on Biological Evolution and Environment](https://es.nju.edu.cn/crebee/), Nanjing University. The image data has been heavily preprocessed by adjusting the contrast and brightness and cropping out non-informative parts of the original images. Every image has also been resized to the same size as well as for the same resolution. See some examples in the sample folder.
+The data was provided by [Dr. Yikun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm), Deputy Director of the [Centre for Research and Education on Biological Evolution and Environment](https://es.nju.edu.cn/crebee/), Nanjing University. The image data has been heavily preprocessed by adjusting the contrast and brightness and cropping out non-informative parts of the original images. Each image has also been resized to the same size as well as for the same resolution. See some examples in the sample folder.
 
 The original dataset has 119 images, which were far from enough for deep learning neural network. After the data augmentation, we have 6,928 images in total for the training the CNN model.
 

@@ -1,0 +1,114 @@
+import streamlit as st
+import numpy as np
+import pathlib
+import IPython.display as display
+from PIL import Image
+import keras
+import tensorflow as tf
+from keras.preprocessing.image import load_img, img_to_array
+from matplotlib import pyplot as plt
+
+# funcitons used in the web app
+def show_img(img):
+    image = np.array(Image.open(img))
+    return st.image(image, caption='Specimen selected')
+
+def process_img(img_path):
+    img = load_img(img_path, target_size=(255, 255))
+    img = img_to_array(img)
+    img = np.expand_dims(img, axis=0)
+    return img / 255
+
+def load_model(model_path):
+    return tf.keras.models.load_model(model_path)
+
+@st.cache(persist=True, suppress_st_warning=True)
+def label2species(species_dict):
+    l_dict = {v:k for k, v in zip(species_dict.keys(), species_dict.values())}
+    return l_dict
+
+def predict_species(img_path, model_path, species_dict):
+    img = process_img(img_path)
+    model = load_model(model_path)
+    prds = model.predict(img)
+    results_top3 = np.argsort(prds)[0][-3:][::-1]
+    labels = label2species(species_dict)
+    species_top3 = [labels[v] for v in results_top3]
+    prds_top3 = sorted(prds[0])[-3:][::-1]
+    final_results = {r:p for r, p in zip (species_top3, prds_top3)}
+    return final_results
+
+#  data locations
+model = './model/id_fusulinids.h5'
+species_dict = {
+    'Pseudoschwagerina': 0, 'Robustoschwgerina': 1,
+    'Sphaeroschwgerina': 2, 'Triticites': 3,
+    'Verbeekina': 4, 'Zellia': 5
+    }
+
+# set the title of web app
+st.markdown(
+    "<h1 style='text-align: left; color: #468FB9;'>Welcome to fusuID!</h1>",
+    unsafe_allow_html=True
+    )
+st.header(
+    '''A ML experimental implementation to identify fusulinids species\
+     using Covulutional Neural Network (CNN).
+    '''
+    )
+
+# seting up the sidebar and loading the data
+st.sidebar.title('Identify a New Specimen')
+st.sidebar.markdown(
+    '**Data availability**: only some species of elected genus are avaliable \
+    for traing the model.'
+    )
+genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
+folder_path = pathlib.Path('sample')
+specimens = list(folder_path.glob(genus+'/*'))
+img_select = st.sidebar.selectbox('Please select an image', specimens)
+st.sidebar.markdown('**or**')
+img_upload = st.sidebar.file_uploader(
+    "Upload an image (png, jpg, or jpeg file)",
+    type=["png", "jpg", "jpeg"]
+    )
+st.sidebar.markdown(
+    'ML model and web application was develped by \
+    [Meng Chen](https://biomchen.github.io); \
+    data was provided by \
+    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm).'
+    )
+st.sidebar.markdown(
+    'Please find more details at [GitHub](https://github.com/biomchen/id-fusulinids).'
+    )
+st.markdown(
+    "<h3 style='text-align: left; color: #AF710D;'>Image of selected specimen \
+    of {0}</h3>"
+    .format(genus),
+    unsafe_allow_html=True)
+
+def main():
+    if img_upload is None:
+        img = img_select
+    else:
+        img = img_upload
+    show_img(img)
+    results = predict_species(img, model, species_dict)
+    st.write('### Top 3 Predictions:')
+    for r,p in zip(results.keys(), results.values()):
+        st.write(r,': ',p, 'probability.')
+
+main()
+
+st.markdown(
+    "**Data disclosure**: The image data has been heavily preprocessed by \
+    adjusting the contrast and brightness and cropping out non-informative \
+    parts of the original images. Each image has also been resized to the \
+    same size as well as for the same resolution. The original dataset has \
+    119 images, which were far from enough for deep learning neural network. \
+    To alliviate the issue, we performed the data augmentation. After the \
+    data augmentation, we have 6,928 images in total for the training the \
+    CNN model."
+    )
+st.markdown('If you are interested in what we are doing, you can reach us\
+    at **meng.chen03(at)gmail.com**.')
