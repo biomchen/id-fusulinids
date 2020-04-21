@@ -57,8 +57,7 @@ st.markdown(
 # seting up the sidebar and loading the data
 st.sidebar.title('Identify a New Specimen')
 st.sidebar.markdown(
-    '**Data availability**: only some species of selected genus are avaliable \
-    for analyses.'
+    '**Data availability**: five genera were avaliable for analyses.'
     )
 st.sidebar.markdown('**Option 1**: select our specimen')
 genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
