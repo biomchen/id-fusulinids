@@ -2,13 +2,29 @@ import streamlit as st
 import numpy as np
 import pathlib
 from PIL import Image
+from resizeimage import resizeimage
 import keras
 import tensorflow as tf
 from keras.preprocessing.image import load_img, img_to_array
 
 # funcitons used in the web app
+def img_open(img):
+    return Image.open(img)
+
+def img2array(img):
+    return np.array(img_open(img))
+
+def img_resize(img):
+    image = img_open(img)
+    image = resizeimage.resize_contain(image, [300, 300])
+    return image
+
 def show_img(img):
-    image = np.array(Image.open(img))
+    image = img2array(img)
+    return st.image(image)
+
+def show_img_resized(img):
+    image = img_resize(img)
     return st.image(image)
 
 def process_img(img_path):
@@ -99,7 +115,8 @@ def main():
             specimen</h3>",
             unsafe_allow_html=True
             )
-        show_img(img)
+        show_img_resized(img)
+        #img = img_resize(img)
     with st.spinner('Wait for processing data and making predictions ...'):
         results = predict_species(img, model, species_dict)
     st.success('Prediction is finished!')
