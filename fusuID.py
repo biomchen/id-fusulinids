@@ -71,7 +71,7 @@ img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
     )
-st.sidebar.markdown('*may be incomptiable with android OS.')
+st.sidebar.markdown('*may be incomptiable with Android OS.')
 st.sidebar.markdown(
     '**Contribution**: Project was initiated by \
     [Meng Chen](https://www.linkedin.com/in/mlchen/) and \
