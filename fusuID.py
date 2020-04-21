@@ -60,12 +60,14 @@ st.sidebar.markdown(
     '**Data availability**: only some species of selected genus are avaliable \
     for analyses.'
     )
-st.sidebar.markdown('**Option 1** using the specimens from our data')
+st.sidebar.markdown('**Option 1**')
+st.sidebar.markdown('using the specimens of our dataset')
 genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
 folder_path = pathlib.Path('sample')
 specimens = list(folder_path.glob(genus+'/*'))
 img_select = st.sidebar.selectbox('Please select an image', specimens)
-st.sidebar.markdown('**Option 2** uploading your data using phone or computer')
+st.sidebar.markdown('**Option 2**')
+st.sidebar.markdown('uploading your specimen using phone or computer')
 img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
