@@ -80,7 +80,7 @@ st.sidebar.markdown(
     by Yukun Shi.'
     )
 st.sidebar.markdown(
-    'If you are interested in this project, please find more details at \
+    'If you are interested in this project, you can find more details at \
     [GitHub](https://github.com/biomchen/id-fusulinids).'
     )
 
