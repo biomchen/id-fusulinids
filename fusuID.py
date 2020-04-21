@@ -66,7 +66,6 @@ folder_path = pathlib.Path('sample')
 specimens = list(folder_path.glob(genus+'/*'))
 img_select = st.sidebar.selectbox('Please select an image', specimens)
 st.sidebar.markdown('**Option 2**')
-st.sidebar.markdown('incompatible with some Android OS')
 img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
