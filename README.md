@@ -27,7 +27,7 @@ The original dataset has 119 images, which were far from enough for deep learnin
 
 ### Model
 
-The convolutional neural network (CNN) is implemented with `Keras` API (`TensorFlow` backend). Because the images of fusulinids are less complicated than those of biomedical counterparts, our CNN model is a much simpler architecture than that of U-net. In total, the CNN has 31,723,782 trainable parameters in total. I applied `Adam` as optimizer and `sparse_categorical_crossentropy` for loss function. See the codes below for details.
+The neural network architecture was inspired by the [U-net](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net), and it was implemented with Keras API (TensorFlow backend). Because the images of fusulinids were heavily processed than those of biomedical counterparts, our CNN model is was much simpler architecture than that of U-net. In total, our CNN has 31,723,782 trainable parameters. See the codes below for details.
 
 ```python
 def build_cnn(input_size=(255, 255, 3)):
