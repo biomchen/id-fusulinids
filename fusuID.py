@@ -49,9 +49,8 @@ st.markdown(
     unsafe_allow_html=True
     )
 st.markdown(
-    '''<h2 style='text-align: left; color: black;'>A ML experimental \
-     product to identify fusulinids species\
-     using Covulutional Neural Network (CNN)</h2>.''',
+    '''<h2 style='text-align: left; color: black;'>An experimental product\
+     to identify fusulinids species using Convolutional Neural Network</h2>''',
      unsafe_allow_html=True
     )
 
@@ -67,6 +66,7 @@ folder_path = pathlib.Path('sample')
 specimens = list(folder_path.glob(genus+'/*'))
 img_select = st.sidebar.selectbox('Please select an image', specimens)
 st.sidebar.markdown('**Option 2**')
+st.sidebar.markdown('incompatible with some Android OS')
 img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
@@ -80,29 +80,36 @@ st.sidebar.markdown(
 st.sidebar.markdown(
     'Please find more details at [GitHub](https://github.com/biomchen/id-fusulinids).'
     )
-st.markdown(
-    "<h3 style='text-align: left; color: black;'>Image of the selected specimen \
-    of {0}</h3>"
-    .format(genus),
-    unsafe_allow_html=True)
 
 def main():
     if img_upload is None:
         img = img_select
+        st.markdown(
+            "<h3 style='text-align: left; color: black;'>Selected specimen \
+            of genus <i>{0}</i></h3>"
+            .format(genus),
+            unsafe_allow_html=True)
+        show_img(img)
     else:
         img = img_upload
-    show_img(img)
+        st.markdown(
+            "<h3 style='text-align: left; color: black;'>Uploaded\
+            specimen</h3>",
+            unsafe_allow_html=True
+            )
+        show_img(img)
     with st.spinner('Wait for processing data and making predictions ...'):
         results = predict_species(img, model, species_dict)
     st.success('Prediction is finished!')
     st.write('### Predicted results (with probablity):')
     for r,p in zip(results.keys(), results.values()):
-        st.write(r,': ',p, 'probability.')
+        st.write(r,': ',p)
 
 main()
 
+st.markdown("**Disclosure**")
 st.markdown(
-    "**Data disclosure**: The image data has been heavily preprocessed by \
+    "**Data**: The image data has been heavily preprocessed by \
     adjusting the contrast and brightness and cropping out non-informative \
     parts of the original images. Each image has also been resized to the \
     same size as well as for the same resolution. The original dataset has \
@@ -111,5 +118,13 @@ st.markdown(
     data augmentation, we had 6,928 images in total for training the \
     CNN model."
     )
+st.markdown(
+    "**Methods**: The neural network architecture was inspired by the\
+     [U-net](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net),\
+     and it was implemented with Keras API (TensorFlow backend). Because the\
+     images of fusulinids were heavily processed than those of biomedical\
+     counterparts, our CNN model is was much simpler architecture than that\
+     of U-net. In total, the CNN has 31,723,782 trainable parameters in total."
+     )
 st.markdown('If you are interested in what we are doing, you can reach us\
     at **meng.chen03(at)gmail.com**.')
