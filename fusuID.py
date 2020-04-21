@@ -60,26 +60,28 @@ st.sidebar.markdown(
     '**Data availability**: only some species of selected genus are avaliable \
     for analyses.'
     )
-st.sidebar.markdown('**Option 1**')
-st.sidebar.markdown('trying our specimens')
+st.sidebar.markdown('**Option 1**: select our specimen')
 genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
 folder_path = pathlib.Path('sample')
 specimens = list(folder_path.glob(genus+'/*'))
-img_select = st.sidebar.selectbox('Please select an image', specimens)
-st.sidebar.markdown('**Option 2**')
-st.sidebar.markdown('trying your specimen using phone or computer')
+img_select = st.sidebar.selectbox('Please select an specimen', specimens)
+st.sidebar.markdown('**Option 2**: try your specimen*')
+st.sidebar.markdown('')
 img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
     )
+st.sidebar.markdown('*may be incomptiable with android OS.')
 st.sidebar.markdown(
-    'ML model and web application was develped by \
-    [Meng Chen](https://biomchen.github.io); \
-    data was provided by \
-    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm).'
+    '**Contribution**: Project was initiated by \
+    [Meng Chen](https://www.linkedin.com/in/mlchen/) and \
+    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm);\
+    ML model and web application was develped by Meng Chen; data was provided \
+    by Yukun Shi.'
     )
 st.sidebar.markdown(
-    'Please find more details at [GitHub](https://github.com/biomchen/id-fusulinids).'
+    'If you are interested in this project, please find more details at \
+    [GitHub](https://github.com/biomchen/id-fusulinids).'
     )
 
 def main():
@@ -110,7 +112,7 @@ main()
 
 st.markdown("**Disclosure**")
 st.markdown(
-    "**Data**: The image data has been heavily preprocessed by \
+    "**Training data**: The image data has been heavily preprocessed by \
     adjusting the contrast and brightness and cropping out non-informative \
     parts of the original images. Each image has also been resized to the \
     same size as well as for the same resolution. The original dataset has \
@@ -127,5 +129,3 @@ st.markdown(
      counterparts, our CNN model is was much simpler architecture than that\
      of U-net. In total, our CNN has 31,723,782 trainable parameters."
      )
-st.markdown('If you are interested in what we are doing, you can reach us\
-    at **meng.chen03(at)gmail.com**.')
