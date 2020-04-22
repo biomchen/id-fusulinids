@@ -88,11 +88,10 @@ img_upload = st.sidebar.file_uploader(
     )
 st.sidebar.markdown('*may be incomptiable with Android OS.')
 st.sidebar.markdown(
-    '**Contribution**: Project was initiated by \
-    [Meng Chen](https://www.linkedin.com/in/mlchen/) and \
-    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm);\
-    ML model and web application was develped by Meng Chen; data was provided \
-    by Yukun Shi.'
+    '**Contribution**: [Meng Chen](https://www.linkedin.com/in/mlchen/) and \
+    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm) initiated the \
+    project; Meng Chen developed ML model and web application and Yukun Shi\
+    provided data.'
     )
 st.sidebar.markdown(
     'If you are interested in this project, you can find more details at \
