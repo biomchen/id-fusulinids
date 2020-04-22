@@ -80,22 +80,22 @@ genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
 folder_path = pathlib.Path('sample')
 specimens = list(folder_path.glob(genus+'/*'))
 img_select = st.sidebar.selectbox('Please select an specimen', specimens)
-st.sidebar.markdown('**Option 2**: try your specimen*')
+st.sidebar.markdown('**Option 2**: try your specimen__*__')
 st.sidebar.markdown('')
 img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
     )
-st.sidebar.markdown('*may be incomptiable with Android OS.')
 st.sidebar.markdown(
-    '**Contribution**: [Meng Chen](https://www.linkedin.com/in/mlchen/) and \
-    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm) initiated the \
-    project; Meng Chen developed ML model and web application and Yukun Shi\
-    provided data.'
-    )
+    '__*Instruction__: For image uploaded using either smartphone or computer, \
+    the image should look like those in **Option 1**. Particularly, when you \
+    are using smartphone to take the picture of the specimen and upload it, \
+    you should center you specimen and keep unrelated information as less as \
+    possible (maybe incomptiable with Android OS).')
 st.sidebar.markdown(
     'If you are interested in this project, you can find more details at \
-    [GitHub](https://github.com/biomchen/id-fusulinids).'
+    [GitHub](https://github.com/biomchen/id-fusulinids). Please send feedbacks \
+    to Meng Chen.'
     )
 
 def main():
@@ -144,3 +144,9 @@ st.markdown(
      counterparts, our CNN model is was much simpler architecture than that\
      of U-net. In total, our CNN has 31,723,782 trainable parameters."
      )
+st.markdown(
+    '**Contribution**: [Meng Chen](https://www.linkedin.com/in/mlchen/) and \
+    [Yukun Shi](https://es.nju.edu.cn/crebee/fjs/list.htm) initiated the \
+    project; **Meng Chen** developed ML model and web application and \
+    **Yukun Shi** provided data.'
+    )
