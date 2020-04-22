@@ -87,11 +87,11 @@ img_upload = st.sidebar.file_uploader(
     type=["png", "jpg", "jpeg"]
     )
 st.sidebar.markdown(
-    '__*Instruction__: For image uploaded using either smartphone or computer, \
-    the image should look like those in **Option 1**. Particularly, when you \
-    are using smartphone to take the picture of the specimen and upload it, \
-    you should center you specimen and keep unrelated information as less as \
-    possible (maybe incomptiable with Android OS).')
+    '__*Instruction__: For the image uploaded using either smartphone or\
+    computer, the image should look like those in **Option 1**. Particularly, \
+    when you are using smartphone to take the picture of the specimen and \
+    upload it, you should center you specimen and keep unrelated information as \
+    less as possible (maybe incomptiable with Android OS).')
 st.sidebar.markdown(
     'If you are interested in this project, you can find more details at \
     [GitHub](https://github.com/biomchen/id-fusulinids). Please send feedbacks \
