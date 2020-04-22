@@ -91,7 +91,7 @@ st.sidebar.markdown(
     computer, the image should look like those in **Option 1**. Particularly, \
     when you are using smartphone to take the picture of the specimen and \
     upload it, you should center your specimen and keep out unrelated \
-    information as more as possible (maybe incomptiable with Android OS).')
+    information as much as possible (maybe incomptiable with Android OS).')
 st.sidebar.markdown(
     'If you are interested in this project, you can find more details at \
     [GitHub](https://github.com/biomchen/id-fusulinids). Please send feedbacks \
