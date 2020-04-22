@@ -141,7 +141,7 @@ st.markdown(
      [U-net](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net),\
      and it was implemented with Keras API (TensorFlow backend). Because the\
      images of fusulinids were heavily processed than those of biomedical\
-     counterparts, our CNN model is was much simpler architecture than that\
+     counterparts, our CNN model is much simpler architecture than that\
      of U-net. In total, our CNN has 31,723,782 trainable parameters."
      )
 st.markdown(
