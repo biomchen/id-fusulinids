@@ -66,7 +66,7 @@ st.markdown(
     )
 st.markdown(
     '''<h2 style='text-align: left; color: black;'>An experimental product\
-     to identify fusulinids species using Convolutional Neural Network</h2>''',
+     to identify fusulinid species using Convolutional Neural Network</h2>''',
      unsafe_allow_html=True
     )
 
