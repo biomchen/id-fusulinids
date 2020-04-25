@@ -10,9 +10,9 @@ Nanjing University, Nanjing, China, 210093
 ------------
 ### Introduction
 
-Fusulinids is one of the most informative fossils present in the stratigraphic horizon. Particularly, petroleum industry relies on them to for signaling the deposit layer of oil and natural gas, as some species act as indication of productive layers. Identifying species becomes endless effort by oil industry. Recently, the machine learning becomes more practical, from a simple chatbot from the customer service of AT&T, to the product recommendation system of Amazon, and to the sophistical AlphaGo of Google AI. Machine learning becomes more and more close to our regular life and even challenge the current life choice (e.g., self-driving car) and maybe automate our jobs (e.g., truck drivers) in near future.
+Fusulinid is one of the most informative fossils present in the stratigraphic horizon. Particularly, petroleum industry relies on them to for signaling the deposit layer of oil and natural gas, as some species act as indication of productive layers. Identifying species becomes endless effort by oil industry. Recently, the machine learning becomes more practical, from a simple chatbot from the customer service of AT&T, to the product recommendation system of Amazon, and to the sophistical AlphaGo of Google AI. Machine learning becomes more and more close to our regular life and even challenge the current life choice (e.g., self-driving car) and maybe automate our jobs (e.g., truck drivers) in near future.
 
-Today, with computational power increases drastically, the machine learning implementation is not the matter of the supercomputer anymore, a workstation or even a personal computer can successfully training the model with proper specs (e.g., Nvidia Quadro graphic card with CUDA enabled). To pioneering implementation of machine learning techniques in paleobiology, my collaborators and I have investigated how to identify fusulinids with convolutional neural network (CNN). Our project intends to speed up the identification of fusulinids species in order to improve research and industrial pipeline. The promising results suggests that by using machine learning techniques, such as CNN in our study, we can increase productivity in both academic and industrial researches.
+Today, with computational power increases drastically, the machine learning implementation is not the matter of the supercomputer anymore, a workstation or even a personal computer can successfully training the model with proper specs (e.g., Nvidia Quadro graphic card with CUDA enabled). To pioneering implementation of machine learning techniques in paleobiology, my collaborators and I have investigated how to identify fusulinids with convolutional neural network (CNN). Our project intends to speed up the identification of fusulinid species in order to improve research and industrial pipeline. The promising results suggests that by using machine learning techniques, such as CNN in our study, we can increase productivity in both academic and industrial researches.
 
 
 ### Data
@@ -54,11 +54,11 @@ def build_cnn(input_size=(255, 255, 3)):
 
 ### Results
 
-The accuracy of the CNN model for 50-epoch training session is 0.9852 and 0.9863 for training and validation datasets, respectively. These are encouraging results for implementing the CNN for identifying the fusulinids at the first phase.
+The accuracy of the CNN model for 50-epoch training session is 0.9852 and 0.9863 for training and validation datasets, respectively. These are encouraging results for implementing the CNN for identifying the fusulinids in this pilot project.
 
 ![](fig_2.png)
 **Fig. 2** The results of the training of CNN models on fusulinids.
 
 ### Future step
 
-After the first phase of identifying the fusulinids successfully using well-preprocessed images, we are moving the projects forward to using raw data. Currently, we are still in collecting a much larger dataset of raw images of the fusulinids.
+After the sucessfully identifying the fusulinids using well-preprocessed images, we are moving the projects forward to using raw data. Currently, we are still in collecting a much larger dataset of raw images of the fusulinids.
