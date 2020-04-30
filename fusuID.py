@@ -61,37 +61,42 @@ species_dict = {
 
 # set the title of web app
 st.markdown(
-    "<h1 style='text-align: left; color: #468FB9;'>Welcome to fusuID!</h1>",
+    "<h1 style='text-align: left; color: black;'>Welcome to fusuID!</h1>",
     unsafe_allow_html=True
     )
 st.markdown(
-    '''<h2 style='text-align: left; color: black;'>An experimental product\
-     to identify fusulinid species using Convolutional Neural Network</h2>''',
+    '''<h2 style='text-align: left; color: #468FB9;'>A web app to identify \
+    fusulinid species using Convolutional Neural Network</h2>''',
      unsafe_allow_html=True
     )
 
 # seting up the sidebar and loading the data
-st.sidebar.title('Identify a New Specimen')
-st.sidebar.markdown(
-    '**Data availability**: five genera were avaliable for analyses.'
-    )
-st.sidebar.markdown('**Option 1**: select our specimen')
+
+st.sidebar.title('Identify a specimen*')
+st.sidebar.markdown('**Option 1** Explore our select specimen')
 genus = st.sidebar.selectbox('Please select a genus', list(species_dict.keys()))
 folder_path = pathlib.Path('sample')
 specimens = list(folder_path.glob(genus+'/*'))
-img_select = st.sidebar.selectbox('Please select an specimen', specimens)
-st.sidebar.markdown('**Option 2**: try your specimen__*__')
+img_select = st.sidebar.selectbox('Please select a specimen', specimens)
+st.sidebar.markdown('**Option 2** Try your own specimen__**__')
 st.sidebar.markdown('')
 img_upload = st.sidebar.file_uploader(
     "Upload an image (png, jpg, or jpeg file)",
     type=["png", "jpg", "jpeg"]
     )
+st.sidebar.markdown('** * Data availability**')
 st.sidebar.markdown(
-    '__*Instruction__: For the image uploaded using either smartphone or\
+    '''**Five genera**: Pseudoschwagerina, Robustoschwagerina, \
+    Sphaeroschwagerina, Triticites, Verbeekina'''
+    )
+st.sidebar.markdown('__ ** Instruction__')
+st.sidebar.markdown(
+    '''For the image uploaded using either smartphone or\
     computer, the image should look like those in **Option 1**. Particularly, \
     when you are using smartphone to take the picture of the specimen and \
     upload it, you should center your specimen and keep out unrelated \
-    information as much as possible (maybe incomptiable with Android OS).')
+    information as much as possible (maybe incomptiable with Android OS).'''
+    )
 st.sidebar.markdown(
     'If you are interested in this project, you can find more details at \
     [GitHub](https://github.com/biomchen/id-fusulinids). Please send feedbacks \
@@ -102,16 +107,16 @@ def main():
     if img_upload is None:
         img = img_select
         st.markdown(
-            "<h3 style='text-align: left; color: black;'>Selected specimen \
-            of genus <i>{0}</i></h3>"
+            "<p style='text-align: left; color: black; font-size: 25px'>\
+            Selected specimen of genus <i>{0}</i></p>"
             .format(genus),
             unsafe_allow_html=True)
         show_img(img)
     else:
         img = img_upload
         st.markdown(
-            "<h3 style='text-align: left; color: black;'>Uploaded\
-            specimen</h3>",
+            "<p style='text-align: left; color: black; font-size: 25px'>\
+            Uploaded specimen</p>",
             unsafe_allow_html=True
             )
         show_img_resized(img)
@@ -119,7 +124,11 @@ def main():
     with st.spinner('Wait for processing data and making predictions ...'):
         results = predict_species(img, model, species_dict)
     st.success('Prediction is finished!')
-    st.write('### Predicted results (with probablity):')
+    st.markdown(
+        '''<p style='text-align: left; color: black; font-size: 25px'>\
+        Top 3 predictions:</p>''',
+        unsafe_allow_html=True
+        )
     for r,p in zip(results.keys(), results.values()):
         st.write(r,': ',p)
 
