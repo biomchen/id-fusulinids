@@ -65,8 +65,9 @@ st.markdown(
     unsafe_allow_html=True
     )
 st.markdown(
-    '''<h2 style='text-align: left; color: #468FB9;'>A web app to identify \
-    fusulinid species using Convolutional Neural Network</h2>''',
+    '''<p style='text-align: left; color: #468FB9; font-size: 22px'>A \
+    experimental web app to identify fusulinid species using Convolutional \
+    Neural Network</p>''',
      unsafe_allow_html=True
     )
 
