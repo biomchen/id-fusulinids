@@ -61,8 +61,8 @@ species_dict = {
 
 # set the title of web app
 st.markdown(
-    "<h1 style='text-align: left; color: black;'>Welcome to fusuID!</h1>",
-    unsafe_allow_html=True
+    "<h1 style='text-align: left; color: black;'>Welcome to fusuIdentifier!\
+    </h1>", unsafe_allow_html=True
     )
 st.markdown(
     '''<p style='text-align: left; color: #468FB9; font-size: 22px'>A \
